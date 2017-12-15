@@ -1,11 +1,338 @@
 body { 
-	margin:0; 
-	padding:0; 
+	font: 100% -apple-system, BlinkMacSystemFont, PingFang SC, Helvetica, Tahoma, Arial, Hiragino Sans GB, Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, SimSun, \\5B8B\4F53, Heiti, \\9ED1\4F53, sans-serif;
+	margin: 0; 
+	padding: 0; 
 }
 
 #map { 
-	position:absolute; 
-	top:0; 
-	bottom:0; 
-	width:100%; 
+	position: absolute; 
+	top: 0; 
+	bottom: 0; 
+	width: 100%; 
+}
+
+#bt-filter {
+	position: absolute;
+	top: 75px;
+	left: 10px;
+	width: 26px;
+	height: 26px;
+	background-color: #fff;
+	border-radius: 2px;
+	border: 2px solid rgba(0, 0, 0, 0.35);
+	cursor: pointer;
+	color: rgba(0, 0, 0, 0.75);
+	font-size: 13px;
+	text-align: center;
+	line-height: 26px;
+}
+
+#filter-panel {
+	position: absolute;
+	top: 10px;
+	left: 50px;
+	min-width: 189px;
+	background-color: #fff;
+	border-radius: 2px;
+	padding-top: 18px;
+	padding-left: 18px;
+	padding-right: 18px;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17);
+	color: rgba(0, 0, 0, 0.75);
+	display: none;
+}
+
+#filter-title {
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+	border-top: 2px solid rgba(0, 0, 0, 0.75);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+	letter-spacing: 2px;
+}
+
+#div-date-filter, #div-beds-filter, #div-reviews-filter, #div-host-filter {
+	margin-top: 24px;
+	margin-bottom: 27px;
+}
+
+#date-input {
+	width: 150px;
+}
+
+.slider {
+	cursor: pointer;
+	width: 150px;
+}
+
+.slider-value {
+	margin-left: 8px;
+	position: relative;
+	top: -3px;
+	letter-spacing: 0.5px;
+}
+
+#reviews-value {
+	margin-left: -9px;
+}
+
+#reviews-slider {
+	position: relative;
+	left: -7px;
+	z-index: 2;
+	opacity: 0;
+	width: 168px;
+}
+
+#reviews-slider-color {
+	width: 155px;
+	height: 20px;
+	background: linear-gradient(to right, rgba(255, 235, 235, 1.0), rgba(255, 85, 85, 1.0));
+	position: relative;
+	top: -122px;
+	z-index: 0;
+	border-radius: 2px;
+}
+
+/* Map popup styles */
+.popup {
+	opacity: 0.91 !important; 
+}
+
+.leaflet-popup-scrolled {
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+}
+
+.div-popup {
+	padding-top: 2px;
+	padding-left: 5px;
+	padding-right: 7px;
+	font-weight: 300;
+	letter-spacing: 0.15px;
+}
+
+.popup-div-head {
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.popup-title {
+	font-size: 13px;
+	font-weight: 700;
+	margin-bottom: 4px;
+}
+
+.popup-host {
+	margin-bottom: 0px;
+}
+
+.popup-beds {
+}
+
+.popup-summary {
+	margin-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.popup-div-reviews {
+	margin-top: 10px;
+	padding-bottom: 14px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.popup-info {
+	font-weight: 600;
+	/*color: rgba(255, 100, 100, 1.0);*/
+}
+
+.popup-radar {
+	height: 220px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.popup-bt-add-review {
+	width: 96px;
+	height: 22px;
+	line-height: 22px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 2px;
+	background-color: rgba(0, 0, 0, 0.2);
+	/*background-color: rgba(255, 135, 135, 1.0);*/
+	color: #fff;
+	font-weight: 700;
+	font-size: 11px;
+	letter-spacing: 0.8px;
+	margin-bottom: 7px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.popup-bt-add-review:hover {
+	background-color: rgba(255, 100, 100, 1.0);
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.popup-bt-show-reviews {
+	width: 111px;
+	height: 22px;
+	line-height: 22px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 2px;
+	background-color: rgba(0, 0, 0, 0.2);
+	/*background-color: rgba(255, 135, 135, 1.0);*/
+	color: #fff;
+	font-weight: 700;
+	font-size: 11px;
+	letter-spacing: 0.8px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.popup-bt-show-reviews:hover {
+	background-color: rgba(255, 100, 100, 1.0);
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.popup-div-price {
+	margin-top: 10px;
+}
+
+.popup-price-curve {
+	height: 180px;
+	margin-top: 5px;
+}
+
+.reviewer-name {
+	margin-top: 15px;
+	font-weight: 600;
+}
+
+.review-date {
+	font-size: 11px;
+}
+
+/* Add review popup styles */
+#mask {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.15);
+	z-index: 1000;
+	display: none;
+}
+
+#popup-add-div {
+	width: 22%;
+	height: 45%;
+	margin-left: 39%;
+	margin-right: 39%;
+	min-width: 305px;
+	min-height: 391px;
+	position: absolute;
+	top: 17%;
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.17);
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 13px;
+	letter-spacing: 1px;
+	font-weight: 700;
+}
+
+#popup-add-title {
+	text-align: center;
+	margin-top: 9px;
+	margin-bottom: 15px;
+	letter-spacing: 1px;
+	border-top: 2px solid rgba(0, 0, 0, 0.75);
+	border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.popup-add-subdiv {
+	margin-left: 10px;
+	margin-bottom: 6px;
+	font-weight: 700;
+}
+
+.popup-slider-title {
+	display: inline-block;
+	width: 120px;
+	letter-spacing: 0.85px;
+}
+
+.popup-slider {
+	position: relative;
+	top: 3px;
+	left: 3px;
+	width: 137px;
+}
+
+.popup-slider-value {
+	position: relative;
+	left: 5px;
+}
+
+#popup-add-comment {
+	margin-left: 10px;
+	font-weight: 700;
+	margin-top: 16px;
+	letter-spacing: 0.85px;
+}
+
+#popup-comment-input {
+	margin-left: 10px;
+	margin-top: 11px;
+	margin-bottom: 14px;
+	width: 276px;
+	height: 75px;
+	padding: 5px;
+	letter-spacing: 0.5px;
+	font-weight: 300;
+	font-size: 12px;
+}
+
+#popup-add-bt-submit, #popup-add-bt-cancel {
+	border-radius: 2px;
+	background-color: rgba(0, 0, 0, 0.15);
+	color: #fff;
+	width: 137px;
+	height: 26px;
+	line-height: 26px;
+	display: inline-block;
+	cursor: pointer;
+	margin-left: 8px;
+	letter-spacing: 1px;
+	font-size: 13px;
+	text-align: center;
+}
+
+#popup-add-bt-submit{
+	background-color: rgba(255, 135, 135, 1.0);
+	margin-left: 10px;
+}
+
+#popup-add-bt-submit:hover {
+	background-color: rgba(255, 100, 100, 1.0);
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+#popup-add-bt-cancel:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:focus, textarea:focus {
+	outline: none;
 }
